@@ -1,4 +1,4 @@
-List of VLDB Papers (Sep 2011 – Aug 2012)
-=========================================
+VLDB Papers
+===========
 
-Including authors and abstracts.
+This website compiles a list of VLDB papers (Sep 2011 – Aug 2012) with their respective authors and abstracts. It can be accessed on [github pages](http://yord.github.io/VLDB/).
