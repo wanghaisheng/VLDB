@@ -11,28 +11,34 @@
             ul > li { display: none; margin-top: 3em; }
             h1 { font-size: 2em; padding-top: 2em; }
             h1 > a { color: black; }
-            form > input[type=checkbox]#all:checked ~ ul > li { display: block; }
-            form > input[type=checkbox]#big-data:checked ~ ul > li[data-tag~="big-data"] { display: block; }
+            input[type=radio]#all:checked ~ ul > li { display: block; }
+            input[type=radio]#big-data:checked ~ ul > li[data-tags~="big-data"] { display: block; }
             h2 { font-size: 1.3em; }
             h2 > a { color: #3B8DBD; }
             ol { margin-top: 0.3em; }
             ol > li { float: left; margin: 0 1.3em; }
             li > label { clear: both; display: block; margin-top: 2.5em; color: #82B964; }
-            li > input[type=checkbox] ~ div { text-align: justify; }
-            li > input[type=checkbox], li > input[type=checkbox]:not(:checked) ~ div { display: none; }
-            li > input[type=checkbox]:not(:checked) ~ label:before { content: "Show\0A"; }
-            li > input[type=checkbox]:checked ~ label:before { content: "Hide\0A"; }
-            li > input[type=checkbox]:checked ~ label { color: #D24D33; }
+            input[type=checkbox] ~ div { text-align: justify; }
+            input[type=checkbox], input[type=checkbox]:not(:checked) ~ div { display: none; }
+            input[type=checkbox]:not(:checked) ~ label:before { content: "Show\0A"; }
+            input[type=checkbox]:not(:checked) ~ label:after { content: "\0A\02295"; }
+            input[type=checkbox]:checked ~ label:before { content: "Hide\0A"; }
+            input[type=checkbox]:checked ~ label:after { content: "\0A\02297"; }
+            input[type=checkbox]:checked ~ label { color: #D24D33; }
         </style>
     </head>
     <body>
         <form>
-            <input checked="checked" type="checkbox" data-tag="all" id="all" /> <label for="all">All</label><br />
-            <input checked="checked" type="checkbox" data-tag="big-data" id="big-data" /> <label for="big-data">Big Data</label>
+            <p>Filter by tags:</p>
+            <input type="radio" name="foo" id="all" checked="checked" /> <label for="all">show all&thinsp;</label><br />
+            <input type="radio" name="foo" id="big-data" /> <label for="big-data">&thinsp;(&hearts;&ensp;&hearts;&ensp;&hearts;)&thinsp;: Big Data</label><br />
+            <input type="radio" name="foo" id="relevant-1" /> <label for="relevant-1">&ensp;&hearts;&thinsp;(&hearts;&ensp;&hearts;)&thinsp;: may read</label><br />
+            <input type="radio" name="foo" id="relevant-2" /> <label for="relevant-2">&ensp;&hearts;&ensp;&hearts;&thinsp;(&hearts;)&thinsp;: should read</label><br />
+            <input type="radio" name="foo" id="relevant-3" /> <label for="relevant-3">&ensp;&hearts;&ensp;&hearts;&ensp;&hearts;&ensp;: must read</label>
             
             <h1><a href="http://www.vldb.org/pvldb/vol5.html">VLDB September 2011</a></h1>
             <ul>
-                <li data-tag="big-data">
+                <li>
                     <h2><a href="http://www.vldb.org/pvldb/vol5/p001_danielfabbri_vldb2012.pdf">Explanation-Based Auditing</a></h2>
                     <ol>
                         <li>Daniel Fabbri</li>
@@ -169,7 +175,7 @@
                         <p>We consider the setting of a Semantic Web database, containing both explicit data encoded in RDF triples, and implicit data, implied by the RDF semantics. Based on a query workload, we address the problem of selecting a set of views to be materialized in the database, minimizing a combination of query processing, view storage, and view maintenance costs. Starting from an existing relational view selection method, we devise new algorithms for recommending view sets, and show that they scale significantly beyond the existing relational ones when adapted to the RDF context. To account for implicit triples in query answers, we propose a novel RDF query reformulation algorithm and an innovative way of incorporating it into view selection in order to avoid a combinatorial explosion in the complexity of the selection process. The interest of our techniques is demonstrated through a set of experiments.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p109_jeffreyjestes_vldb2012.pdf">Building Wavelet Histograms on Large Data in MapReduce</a></h2>
                     <ol>
                         <li>Jeffrey Jestes</li>
@@ -182,7 +188,7 @@
                         <p>MapReduce is becoming the de facto framework for storing and processing massive data, due to its excellent scalability, reliability, and elasticity. In many MapReduce applications, obtaining a compact accurate summary of data is essential. Among various data summarization tools, histograms have proven to be particularly important and useful for summarizing data, and the wavelet histogram is one of the most widely used histograms. In this paper, we investigate the problem of building wavelet histograms efficiently on large datasets in MapReduce. We measure the efficiency of the algorithms by both end-to-end running time and communication cost. We demonstrate straightforward adaptations of existing exact and approximate methods for building wavelet histograms to MapReduce clusters are highly inefficient. To that end, we design new algorithms for computing exact and approximate wavelet histograms and discuss their implementation in MapReduce. We illustrate our techniques in Hadoop, and compare to baseline solutions with extensive experiments performed in a heterogeneous Hadoop cluster of 16 nodes, using large real and synthetic datasets, up to hundreds of gigabytes. The results suggest significant (often orders of magnitude) performance improvement achieved by our new algorithms.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p121_diyang_vldb2012.pdf">Summarization and Matching of Density-Based Clusters in Streaming Environments</a></h2>
                     <ol>
                         <li>Di Yang</li>
@@ -721,7 +727,7 @@
                         We show analytically that our mechanisms induce truthfulness and recover the optimization costs. We also show experimentally that our mechanisms yield higher utility than the state-of-the-art approach based on regret accumulation.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p574_albertangel_vldb2012.pdf">Dense Subgraph Maintenance under Streaming Edge Weight Updates for Real-time Story Identification</a></h2>
                     <ol>
                         <li>Albert Angel</li>
@@ -931,7 +937,7 @@
                         <p>This paper presents Cologne, a declarative optimization platform that enables constraint optimization problems (COPs) to be declaratively specified and incrementally executed in distributed systems. Cologne integrates a declarative networking engine with an off-theshelf constraint solver. We have developed the Colog language that combines distributed Datalog used in declarative networking with language constructs for specifying goals and constraints used in COPs. Cologne uses novel query processing strategies for processing Colog programs, by combining the use of bottom-up distributed Datalog evaluation with top-down goal-oriented constraint solving. Using case studies based on cloud and wireless network optimizations, we demonstrate that Cologne (1) can flexibly support a wide range of policy-based optimizations in distributed systems, (2) results in orders of magnitude less code compared to imperative implementations, and (3) is highly efficient with low overhead and fast convergence times.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p764_yizhang_vldb2012.pdf">Optimizing I/O for Big Array Analytics</a></h2>
                     <ol>
                         <li>Yi Zhang</li>
@@ -961,7 +967,7 @@
             </ul>
             <h1><a href="http://www.vldb.org/pvldb/vol5.html">VLDB May 2012</a></h1>
             <ul>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p788_zhaosun_vldb2012.pdf">Efficient Subgraph Matching on Billion Node Graphs</a></h2>
                     <ol>
                         <li>Zhao Sun</li>
@@ -976,7 +982,7 @@
                         <p>The ability to handle large scale graph data is crucial to an increasing number of applications. Much work has been dedicated to supporting basic graph operations such as subgraph matching, reachability, regular expression matching, etc. In many cases, graph indices are employed to speed up query processing. Typically, most indices require either super-linear indexing time or super-linear indexing space. Unfortunately, for very large graphs, super-linear approaches are almost always infeasible. In this paper, we study the problem of subgraph matching on billion-node graphs. We present a novel algorithm that supports efficient subgraph matching for graphs deployed on a distributed memory store. Instead of relying on super-linear indices, we use efficient graph exploration and massive parallel computing for query processing. Our experimental results demonstrate the feasibility of performing subgraph matching on web-scale graph data.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p800_yeyuan_vldb2012.pdf">Efficient Subgraph Similarity Search on Large Probabilistic Graph Databases</a></h2>
                     <ol>
                         <li>Ye Yuan</li>
@@ -990,7 +996,7 @@
                         <p>Many studies have been conducted on seeking the efficient solution for subgraph similarity search over certain (deterministic) graphs due to its wide application in many fields, including bioinformatics, social network analysis, and Resource Description Framework (RDF) data management. All these works assume that the underlying data are certain. However, in reality, graphs are often noisy and uncertain due to various factors, such as errors in data extraction, inconsistencies in data integration, and privacy preserving purposes. Therefore, in this paper, we study subgraph similarity search on large probabilistic graph databases. Different from previous works assuming that edges in an uncertain graph are independent of each other, we study the uncertain graphs where edges’ occurrences are correlated. We formally prove that subgraph similarity search over probabilistic graphs is #P-complete, thus, we employ a filter-and-verify framework to speed up the search. In the filtering phase, we develop tight lower and upper bounds of subgraph similarity probability based on a probabilistic matrix index, PMI. PMI is composed of discriminative subgraph features associated with tight lower and upper bounds of subgraph isomorphism probability. Based on PMI, we can sort out a large number of probabilistic graphs and maximize the pruning capability. During the verification phase, we develop an efficient sampling algorithm to validate the remaining candidates. The efficiency of our proposed solutions has been verified through extensive experiments.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p812_jiawang_vldb2012.pdf">Truss Decomposition in Massive Networks</a></h2>
                     <ol>
                         <li>Jia Wang</li>
@@ -1179,7 +1185,7 @@
                         <p>Recommender systems based on latent factor models have been effectively used for understanding user interests and predicting future actions. Such models work by projecting the users and items into a smaller dimensional space, thereby clustering similar users and items together and subsequently compute similarity between unknown user-item pairs. When user-item interactions are sparse (sparsity problem) or when new items continuously appear (cold start problem), these models perform poorly. In this paper, we exploit the combination of taxonomies and latent factor models to mitigate these issues and improve recommendation accuracy. We observe that taxonomies provide structure similar to that of a latent factor model: namely, it imposes human-labeled categories (clusters) over items. This leads to our proposed taxonomy-aware latent factor model (TF) which combines taxonomies and latent factors using additive models. We develop efficient algorithms to train the TF models, which scales to large number of users/items and develop scalable inference/recommendation algorithms by exploiting the structure of the taxonomy. In addition, we extend the TF model to account for the temporal dynamics of user interests using highorder Markov chains. To deal with large-scale data, we develop a parallel multi-core implementation of our TF model. We empirically evaluate the TF model for the task of predicting user purchases using a real-world shopping dataset spanning more than a million users and products. Our experiments demonstrate the benefits of using our TF models over existing approaches, in terms of both prediction accuracy and running time.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p968_yanifahmad_vldb2012.pdf">DBToaster: Higher-order Delta Processing for Dynamic, Frequently Fresh Views</a></h2>
                     <ol>
                         <li>Yanif Ahmad</li>
@@ -1194,7 +1200,7 @@
                         In this paper, we present viewlet transforms, a recursive finite differencing technique applied to queries. The viewlet transform materializes a query and a set of its higher-order deltas as views. These views support each other’s incremental maintenance, leading to a reduced overall view maintenance cost. The viewlet transform of a query admits efficient evaluation, the elimination of certain expensive query operations, and aggressive parallelization. We develop viewlet transforms into a workable query execution technique, present a heuristic and cost-based optimization framework, and report on experiments with a prototype dynamic data management system that combines viewlet transforms with an optimizing compilation technique. The system supports tens of thousands of complete view refreshes a second for a wide range of queries.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p980_manojkagarwal_vldb2012.pdf">Real Time Discovery of Dense Clusters in Highly Dynamic Graphs: Identifying Real World Events in Highly Dynamic Environments</a></h2>
                     <ol>
                         <li>Manoj K Agarwal</li>
@@ -1220,7 +1226,7 @@
                         <p>While traditional data-management systems focus on evaluating single, adhoc queries over static data sets in a centralized setting, several emerging applications require (possibly, continuous) answers to queries on dynamic data that is widely distributed and constantly updated. Furthermore, such query answers often need to discount data that is “stale”, and operate solely on a sliding window of recent data arrivals (e.g., data updates occurring over the last 24 hours). Such distributed data streaming applications mandate novel algorithmic solutions that are both timeand space-efficient (to manage high-speed data streams), and also communication-efficient (to deal with physical data distribution). In this paper, we consider the problem of complex query answering over distributed, high-dimensional data streams in the sliding-window model. We introduce a novel sketching technique (termed ECM-sketch) that allows effective summarization of streaming data over both time-based and count-based sliding windows with probabilistic accuracy guarantees. Our sketch structure enables point as well as inner-product queries, and can be employed to address a broad range of problems, such as maintaining frequency statistics, finding heavy hitters, and computing quantiles in the sliding-window model. Focusing on distributed environments, we demonstrate how ECM-sketches of individual, local streams can be composed to generate a (low-error) ECM-sketch summary of the order-preserving aggregation of all streams; furthermore, we show how ECM-sketches can be exploited for continuous monitoring of sliding-window queries over distributed streams. Our extensive experimental study with two real-life data sets validates our theoretical claims and verifies the effectiveness of our techniques. To the best of our knowledge, ours is the first work to address efficient, guaranteed-error complex query answering over distributed data streams in the sliding-window model.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1004_hoangtamvo_vldb2012.pdf">LogBase: A Scalable Log-structured Database System in the Cloud</a></h2>
                     <ol>
                         <li>Hoang Tam Vo</li>
@@ -1250,7 +1256,7 @@
                         <p>k nearest neighbor join (kNN join), designed to find k nearest neighbors from a dataset S for every object in another dataset R, is a primitive operation widely adopted by many data mining applications. As a combination of the k nearest neighbor query and the join operation, kNN join is an expensive operation. Given the increasing volume of data, it is difficult to perform a kNN join on a centralized machine efficiently. In this paper, we investigate how to perform kNN join using MapReduce which is a well-accepted framework for data-intensive applications over clusters of computers. In brief, the mappers cluster objects into groups; the reducers perform the kNN join on each group of objects separately. We design an effective mapping mechanism that exploits pruning rules for distance filtering, and hence reduces both the shuffling and computational costs. To reduce the shuffling cost, we propose two approximate algorithms to minimize the number of replicas. Extensive experiments on our in-house cluster demonstrate that our proposed methods are efficient, robust and scalable.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1028_nikolaylaptev_vldb2012.pdf">Early Accurate Results for Advanced Analytics on MapReduce</a></h2>
                     <ol>
                         <li>Nikolay Laptev</li>
@@ -1292,7 +1298,7 @@
                         <p>The problem of identification of statistically significant patterns in a sequence of data has been applied to many domains such as intrusion detection systems, financial models, web-click records, automated monitoring systems, computational biology, cryptology, and text analysis. An observed pattern of events is deemed to be statistically significant if it is unlikely to have occurred due to randomness or chance alone. We use the chi-square statistic as a quantitative measure of statistical significance. Given a string of characters generated from a memoryless Bernoulli model, the problem is to identify the substring for which the empirical distribution of single letters deviates the most from the distribution expected from the generative Bernoulli model. This deviation is captured using the chi-square measure. The most significant substring (MSS) of a string is thus defined as the substring having the highest chi-square value. Till date, to the best of our knowledge, there does not exist any algorithm to find the MSS in better than O(n2) time, where n denotes the length of the string. In this paper, we propose an algorithm to find the most significant substring, whose running time is O(n3/2) with high probability. We also study some variants of this problem such as finding the top-t set, finding all substrings having chi-square greater than a fixed threshold and finding the MSS among substrings greater than a given length. We experimentally demonstrate the asymptotic behavior of the MSS on varying the string size and alphabet size. We also describe some applications of our algorithm on cryptology and real world data from finance and sports. Finally, we compare our technique with the existing heuristics for finding the MSS.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1064_martina-cezaraalbutiu_vldb2012.pdf">Massively Parallel Sort-Merge Joins in Main Memory Multi-Core Database Systems</a></h2>
                     <ol>
                         <li>Martina-Cezara Albutiu</li>
@@ -1435,7 +1441,7 @@
                         In this paper we significantly extend the class of feasible entangled queries beyond uniqueness and safety. First, we show that we can simply drop uniqueness and still efficiently evaluate a set of safe entangled queries. Second, we show that as long as all users coordinate on the same set of attributes, we can give an efficient algorithm for coordination even if the set of queries does not satisfy safety. In an experimental evaluation we show that our algorithms are feasible for a wide spectrum of coordination scenarios.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1184_xiaofeizhang_vldb2012.pdf">Efficient Multi-way Theta-Join Processing Using MapReduce</a></h2>
                     <ol>
                         <li>Xiaofei Zhang</li>
@@ -1516,7 +1522,7 @@
                         <p>Analytic functions represent the state-of-the-art way of performing complex data analysis within a single SQL statement. In particular, an important class of analytic functions that has been frequently used in commercial systems to support OLAP and decision support applications is the class of window functions. A window function returns for each input tuple a value derived from applying a function over a window of neighboring tuples. However, existing window function evaluation approaches are based on a naive sorting scheme. In this paper, we study the problem of optimizing the evaluation of window functions. We propose several efficient techniques, and identify optimization opportunities that allow us to optimize the evaluation of a set of window functions. We have integrated our scheme into PostgreSQL. Our comprehensive experimental study on the TPC-DS datasets as well as synthetic datasets and queries demonstrate significant speedup over existing approaches.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1256_fabianhueske_vldb2012.pdf">Opening the Black Boxes in Data Flow Optimization</a></h2>
                     <ol>
                         <li>Fabian Hueske</li>
@@ -1534,7 +1540,7 @@
                         We design and implement an optimizer for parallel data flows that does not assume knowledge of semantics or algebraic properties of operators. Our evaluation confirms that the optimizer can apply common rewritings such as selection reordering, bushy joinorder enumeration, and limited forms of aggregation push-down, hence yielding similar rewriting power as modern relational DBMS optimizers. Moreover, it can optimize the operator order of nonrelational data flows, a unique feature among today’s systems.</p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1268_stephanewen_vldb2012.pdf">Spinning Fast Iterative Data Flows</a></h2>
                     <ol>
                         <li>Stephan Ewen</li>
@@ -1765,7 +1771,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1459_stacypatterson_vldb2012.pdf">Serializability, not Serial: Concurrency Control and Availability in Multi-Datacenter Datastores</a></h2>
                     <ol>
                         <li>Stacy Patterson</li>
@@ -2107,7 +2113,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1698_kenansahin_vldb2012.pdf">Challenges in Economic Massive Content Storage and Management (MCSAM) in the Era of Self-Organizing, Self-Expanding and Self-Linking Data Clusters</a></h2>
                     <ol>
                         <li>Kenan Şahin</li>
@@ -2173,7 +2179,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1724_tilmannrabl_vldb2012.pdf">Solving Big Data Challenges for Enterprise Application Performance Management</a></h2>
                     <ol>
                         <li>Tilmann Rabl</li>
@@ -2297,7 +2303,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1814_wanglam_vldb2012.pdf">Muppet: MapReduce-Style Processing of Fast Data</a></h2>
                     <ol>
                         <li>Wang Lam</li>
@@ -2425,7 +2431,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1886_huiqixu_vldb2012.pdf">CloudVista: Interactive and Economical Visual Cluster Analysis for Big Data in the Cloud</a></h2>
                     <ol>
                         <li>Huiqi Xu</li>
@@ -2468,7 +2474,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1898_sattamalsubaiee_vldb2012.pdf">ASTERIX: An Open Source System for "Big Data" Management and Analysis</a></h2>
                     <ol>
                         <li>Sattam Alsubaiee</li>
@@ -2494,7 +2500,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p1902_sameeragarwal_vldb2012.pdf">Blink and It's Done: Interactive Queries on Very Large Data</a></h2>
                     <ol>
                         <li>Sameer Agarwal</li>
@@ -2954,7 +2960,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p2014_jensdittrich_vldb2012.pdf">Efficient Big Data Processing in Hadoop MapReduce</a></h2>
                     <ol>
                         <li>Jens Dittrich</li>
@@ -2967,7 +2973,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p2016_kyuseokshim_vldb2012.pdf">MapReduce Algorithms for Big Data Analysis</a></h2>
                     <ol>
                         <li>Kyuseok Shim</li>
@@ -3072,7 +3078,7 @@
                         </p>
                     </div>
                 </li>
-                <li>
+                <li data-tags="big-data">
                     <h2><a href="http://vldb.org/pvldb/vol5/p2032_alexandroslabrinidis_vldb2012.pdf">Challenges and Opportunities with Big Data</a></h2>
                     <ol>
                         <li>Alexandros Labrinidis</li>
