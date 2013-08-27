@@ -11,7 +11,7 @@
                   h1 { font-size: 2em; padding-top: 2em; }
                   h1 > a { color: black; }
                   input[type=radio]#all:checked ~ div ul > li { display: block; }
-                  input[type=radio]#big-data:checked ~ ul > li[data-tags~="big-data"] { display: block; }
+                  input[type=radio]#big-data:checked ~ div ul > li[data-tags~="big-data"] { display: block; }
                   h2 { font-size: 1.5em; margin-top: 1em; }
                   h3 { font-size: 1.3em; }
                   h3 > a { color: #3B8DBD; }
@@ -106,7 +106,7 @@
         </li></ul>
         </li><li>
           <h2>Issue 3 (June 2013)</h2>
-          <ul><li>
+          <ul><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0288-4">Computing weight constraint reachability in large networks</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0288-4.pdf">Pdf</a>)
@@ -133,7 +133,7 @@
           <input type="checkbox" id="7952"/>
           <label for="7952">Abstract</label>
           <div>The Voronoi diagram is an important technique for answering nearest-neighbor queries for spatial databases. We study how the Voronoi diagram can be used for uncertain spatial data, which are inherent in scientific and business applications. Specifically, we propose the Uncertain-Voronoi diagram (or UV-diagram), which divides the data space into disjoint “UV-partitions”. Each UV-partition $P$ is associated with a set $S$ of objects, such that any point $q$ located in $P$ has the set $S$ as its nearest neighbor with nonzero probabilities. The UV-diagram enables queries that return objects with nonzero chances of being the nearest neighbor (NN) of a given point $q$ . It supports “continuous nearest-neighbor search”, which refreshes the set of NN objects of $q$ , as the position of $q$ changes. It also allows the analysis of nearest-neighbor information, for example, to find out the number of objects that are the nearest neighbors of any point in a given area. A UV-diagram requires exponential construction and storage costs. To tackle these problems, we devise an alternative representation of a UV-diagram, by using a set of UV-cells. A UV-cell of an object $o$ is the extent $e$ for which $o$ can be the nearest neighbor of any point $q \in e$ . We study how to speed up the derivation of UV-cells by considering its nearby objects. We also use the UV-cells to design the UV-index, which supports different queries, and can be constructed in polynomial time. We have performed extensive experiments on both real and synthetic data to validate the efficiency of our approaches.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0292-8">High efficiency and quality: large graphs matching</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0292-8.pdf">Pdf</a>)
@@ -199,7 +199,7 @@
           <input type="checkbox" id="52333"/>
           <label for="52333">Abstract</label>
           <div>Auditing the changes to a database is critical for identifying malicious behavior, maintaining data quality, and improving system performance. But an accurate audit log is an historical record of the past that can also pose a serious threat to privacy. Policies that limit data retention conflict with the goal of accurate auditing, and data owners have to carefully balance the need for policy compliance with the goal of accurate auditing. In this paper, we provide a framework for auditing the changes to a database system while respecting data retention policies. Our framework includes an historical data model that supports flexible audit queries, along with a language for retention policies that can hide individual attribute values or remove entire tuples from the history. Under retention policies, the audit history is partially incomplete. Thus, audit queries on the protected history can include imprecise results. We propose two different models (a tuple-independent model and a tuple-correlated model) for formalizing the meaning of audit queries. We implement policy application and query answering efficiently in a standard relational system and characterize the cases where accurate auditing can be achieved under retention restrictions.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0284-8">Lindex: a lattice-based index for graph databases</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0284-8.pdf">Pdf</a>)
@@ -247,7 +247,7 @@
           <input type="checkbox" id="70138"/>
           <label for="70138">Abstract</label>
           <div>In this paper, we present a technique for building a high-availability (HA) database management system (DBMS). The proposed technique can be applied to any DBMS with little or no customization, and with reasonable performance overhead. Our approach is based on Remus, a commodity HA solution implemented in the virtualization layer, that uses asynchronous virtual machine state replication to provide transparent HA and failover capabilities. We show that while Remus and similar systems can protect a DBMS, database workloads incur a performance overhead of up to 32 % as compared to an unprotected DBMS. We identify the sources of this overhead and develop optimizations that mitigate the problems. We present an experimental evaluation using two popular database systems and industry standard benchmarks showing that for certain workloads, our optimized approach provides fast failover ( $\le $ 3 s of downtime) with low performance overhead when compared to an unprotected DBMS. Our approach provides a practical means for existing, deployed database systems to be made more reliable with a minimum of risk, cost, and effort. Furthermore, this paper invites new discussion about whether the complexity of HA is best implemented within the DBMS, or as a service by the infrastructure below it.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0286-6">OXPath: A language for scalable data extraction, automation, and crawling on the deep web</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0286-6.pdf">Pdf</a>)
@@ -364,7 +364,7 @@
           <input type="checkbox" id="43419"/>
           <label for="43419">Abstract</label>
           <div>We consider MapReduce clusters designed to support multiple concurrent jobs, concentrating on environments in which the number of distinct datasets is modest relative to the number of jobs. In such scenarios, many individual datasets are likely to be scanned concurrently by multiple Map phase jobs. As has been noticed previously, this scenario provides an opportunity for Map phase jobs to cooperate, sharing the scans of these datasets, and thus reducing the costs of such scans. Our paper has three main contributions over previous work. First, we present a novel and highly general method for sharing scans and thus amortizing their costs. This concept, which we call cyclic piggybacking, has a number of advantages over the more traditional batching scheme described in the literature. Second, we notice that the various subjobs generated in this manner can be assumed in an optimal schedule to respect a natural chain precedence ordering. Third, we describe a significant but natural generalization of the recently introduced FLEX scheduler for optimizing schedules within the context of this cyclic piggybacking paradigm, which can be tailored to a variety of cost metrics. Such cost metrics include average response time, average stretch, and any minimax-type metric—a total of 11 separate and standard metrics in all. Moreover, most of this carries over in the more general case of overlapping rather than identical datasets as well, employing what we will call semi-shared scans. In such scenarios, chain precedence is replaced by arbitrary precedence, but we can still handle 8 of the original 11 metrics. The overall approach, including both cyclic piggybacking and the FLEX scheduling generalization, is called CIRCUMFLEX. We describe some practical implementation strategies. And we evaluate the performance of CIRCUMFLEX via a variety of simulation and real benchmark experiments.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0280-z">SCOPE: parallel databases meet MapReduce</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0280-z.pdf">Pdf</a>)
@@ -373,7 +373,7 @@
           <input type="checkbox" id="82945"/>
           <label for="82945">Abstract</label>
           <div>Companies providing cloud-scale data services have increasing needs to store and analyze massive data sets, such as search logs, click streams, and web graph data. For cost and performance reasons, processing is typically done on large clusters of tens of thousands of commodity machines. Such massive data analysis on large clusters presents new opportunities and challenges for developing a highly scalable and efficient distributed computation system that is easy to program and supports complex system optimization to maximize performance and reliability. In this paper, we describe a distributed computation system, Structured Computations Optimized for Parallel Execution (Scope), targeted for this type of massive data analysis. Scope combines benefits from both traditional parallel databases and MapReduce execution engines to allow easy programmability and deliver massive scalability and high performance through advanced optimization. Similar to parallel databases, the system has a SQL-like declarative scripting language with no explicit parallelism, while being amenable to efficient parallel execution on large clusters. An optimizer is responsible for converting scripts into efficient execution plans for the distributed computation engine. A physical execution plan consists of a directed acyclic graph of vertices. Execution of the plan is orchestrated by a job manager that schedules execution on available machines and provides fault tolerance and recovery, much like MapReduce systems. Scope is being used daily for a variety of data analysis and data mining applications over tens of thousands of machines at Microsoft, powering Bing, and other online services.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0283-9">gbase: an efficient analysis platform for large graphs</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0283-9.pdf">Pdf</a>)
@@ -448,7 +448,7 @@
           <input type="checkbox" id="77993"/>
           <label for="77993">Abstract</label>
           <div>Video similarity matching has broad applications such as copyright detection, news tracking and commercial monitoring, etc. Among these applications, one typical task is to detect the local similarity between two videos without the knowledge on positions and lengths of each matched subclip pair. However, most studies so far on video detection investigate the global similarity between two short clips using a pre-defined distance function. Although there are a few works on video subsequence detection, all these proposals fail to provide an effective query processing mechanism. In this paper, we first generalize the problem of video similarity matching. Then, a novel solution called consistent keyframe matching (CKM) is proposed to solve the problem of subsequence matching based on video segmentation. CKM is designed with two goals: (1) good scalability in terms of the query sequence length and the size of video database and (2) fast video subsequence matching in terms of processing time. Good scalability is achieved by employing a batch query paradigm, where keyframes sharing the same query space are summarized and ordered. As such, the redundancy of data access is eliminated, leading to much faster video query processing. Fast subsequence matching is achieved by comparing the keyframes of different video sequences. Specifically, a keyframe matching graph is first constructed and then divided into matched candidate subgraphs. We have evaluated our proposed approach over a very large real video database. Extensive experiments demonstrate the effectiveness and efficiency of our approach.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0256-4">GRAIL: a scalable index for reachability queries in very large graphs</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0256-4.pdf">Pdf</a>)
@@ -478,7 +478,7 @@
         </li></ul>
         </li><li>
           <h2>Issue 3 (June 2012)</h2>
-          <ul><li>
+          <ul><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0242-x">Real-time creation of bitmap indexes on streaming network data</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0242-x.pdf">Pdf</a>)
@@ -505,7 +505,7 @@
           <input type="checkbox" id="92560"/>
           <label for="92560">Abstract</label>
           <div>In this paper, we study the problem of supporting multidimensional range queries on encrypted data. The problem is motivated by secure data outsourcing applications where a client may store his/her data on a remote server in encrypted form and want to execute queries using server’s computational capabilities. The solution approach is to compute a secure indexing tag of the data by applying bucketization (a generic form of data partitioning) which prevents the server from learning exact values but still allows it to check if a record satisfies the query predicate. Queries are evaluated in an approximate manner where the returned set of records may contain some false positives. These records then need to be weeded out by the client which comprises the computational overhead of our scheme. We develop a bucketization procedure for answering multidimensional range queries on multidimensional data. For a given bucketization scheme, we derive cost and disclosure-risk metrics that estimate client’s computational overhead and disclosure risk respectively. Given a multidimensional dataset, its bucketization is posed as an optimization problem where the goal is to minimize the risk of disclosure while keeping query cost (client’s computational overhead) below a certain user-specified threshold value. We provide a tunable data bucketization algorithm that allows the data owner to control the trade-off between disclosure risk and cost. We also study the trade-off characteristics through an extensive set of experiments on real and synthetic data.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0246-6">A survey of skyline processing in highly distributed environments</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0246-6.pdf">Pdf</a>)
@@ -544,7 +544,7 @@
           <input type="checkbox" id="59012"/>
           <label for="59012">Abstract</label>
           <div></div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-012-0269-7">The HaLoop approach to large-scale iterative data analysis</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-012-0269-7.pdf">Pdf</a>)
@@ -601,7 +601,7 @@
           <input type="checkbox" id="82749"/>
           <label for="82749">Abstract</label>
           <div>Computer architectures are quickly changing toward heterogeneous many-core systems. Such a trend opens up interesting opportunities but also raises immense challenges since the efficient use of heterogeneous many-core systems is not a trivial problem. Software-configurable microprocessors and FPGAs add further diversity but also increase complexity. In this paper, we explore the use of sorting networks on field-programmable gate arrays (FPGAs). FPGAs are very versatile in terms of how they can be used and can also be added as additional processing units in standard CPU sockets. Our results indicate that efficient usage of FPGAs involves non-trivial aspects such as having the right computation model (a sorting network in this case); a careful implementation that balances all the design constraints in an FPGA; and the proper integration strategy to link the FPGA to the rest of the system. Once these issues are properly addressed, our experiments show that FPGAs exhibit performance figures competitive with those of modern general-purpose CPUs while offering significant advantages in terms of power consumption and parallel stream evaluation.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0233-y">Distributed similarity estimation using derived dimensions</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0233-y.pdf">Pdf</a>)
@@ -628,7 +628,7 @@
           <input type="checkbox" id="26758"/>
           <label for="26758">Abstract</label>
           <div>In this paper, we study the problem of continuous monitoring of reverse k nearest neighbors queries in Euclidean space as well as in spatial networks. Existing techniques are sensitive toward objects and queries movement. For example, the results of a query are to be recomputed whenever the query changes its location. We present a framework for continuous reverse k nearest neighbor (RkNN) queries by assigning each object and query with a safe region such that the expensive recomputation is not required as long as the query and objects remain in their respective safe regions. This significantly improves the computation cost. As a byproduct, our framework also reduces the communication cost in client–server architectures because an object does not report its location to the server unless it leaves its safe region or the server sends a location update request. We also conduct a rigid cost analysis for our Euclidean space RkNN algorithm. We show that our techniques can also be applied to answer bichromatic RkNN queries in Euclidean space as well as in spatial networks. Furthermore, we show that our techniques can be extended for the spatial networks that are represented by directed graphs. The extensive experiments demonstrate that our techniques outperform the existing techniques by an order of magnitude in terms of computation cost and communication cost.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0238-6">Answering pattern match queries in large graph databases via graph embedding</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0238-6.pdf">Pdf</a>)
@@ -661,7 +661,7 @@
           <h1>Volume 20 (February 2011 - December 2011)</h1>
           <ol><li>
           <h2>Issue 6 (December 2011)</h2>
-          <ul><li>
+          <ul><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-011-0224-z">STAIRS: Towards efficient full-text filtering and dissemination in DHT environments</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-011-0224-z.pdf">Pdf</a>)
@@ -859,7 +859,7 @@
           <input type="checkbox" id="96167"/>
           <label for="96167">Abstract</label>
           <div>The prediction of future events has great importance in many applications. The prediction is based on episode rules which are composed of events and two time constraints which require all the events in the episode rule and in the predicate of the rule to occur in a time interval, respectively. In an event stream, a sequence of events which matches the predicate of the rule satisfying the specified time constraint is called an occurrence of the predicate. After finding the occurrence, the consequent event which will occur in a time interval can be predicted. However, the time intervals computed from some occurrences for predicting the event can be contained in the time intervals computed from other occurrence and become redundant. As a result, how to design an efficient and effective event predictor in a stream environment is challenging. In this paper, an effective scheme is proposed to avoid matching the predicate events corresponding to redundant time intervals for prediction. Based on the scheme, we respectively consider two methodologies, forward retrieval and backward retrieval, for the efficient matching of predicate events over event streams. The approach based on forward retrieval construct a queue structure to incrementally maintain parts of the matched results as events arrive, and thus it avoids backward scans of the event stream. On the other hand, the approach based on backward retrieval maintains the recently arrived events in a tree structure. The matching of predicate events is triggered by identifiable events and achieved by an efficient retrieval on the tree structure, which avoids exhaustive scans of the arrived events. By running a series of experiments, we show that each of the proposed approaches has its advantages on particular data distributions and parameter settings.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-010-0198-2">Mining learning-dependency between knowledge units from text</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-010-0198-2.pdf">Pdf</a>)
@@ -1363,7 +1363,7 @@
           <input type="checkbox" id="78182"/>
           <label for="78182">Abstract</label>
           <div></div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-009-0172-z">Methods for finding frequent items in data streams</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-009-0172-z.pdf">Pdf</a>)
@@ -1441,7 +1441,7 @@
           <input type="checkbox" id="95484"/>
           <label for="95484">Abstract</label>
           <div>Entity resolution (ER) (also known as deduplication or merge-purge) is a process of identifying records that refer to the same real-world entity and merging them together. In practice, ER results may contain “inconsistencies,” either due to mistakes by the match and merge function writers or changes in the application semantics. To remove the inconsistencies, we introduce “negative rules” that disallow inconsistencies in the ER solution (ER-N). A consistent solution is then derived based on the guidance from a domain expert. The inconsistencies can be resolved in several ways, leading to accurate solutions. We formalize ER-N, treating the match, merge, and negative rules as black boxes, which permits expressive and extensible ER-N solutions. We identify important properties for the rules that, if satisfied, enable less costly ER-N. We develop and evaluate two algorithms that find an ER-N solution based on guidance from the domain expert: the GNR algorithm that does not assume the properties and the ENR algorithm that exploits the properties.</div>
-        </li><li>
+        </li><li data-tags="big-data">
           <h3>
             <a href="http://link.springer.com/article/10.1007/s00778-009-0140-7">Statistical structures for Internet-scale data management</a>
             (<a href="http://link.springer.com/content/pdf/10.1007%2Fs00778-009-0140-7.pdf">Pdf</a>)
